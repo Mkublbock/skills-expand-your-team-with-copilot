@@ -1,0 +1,169 @@
+name: 👥 Student Registration Management
+description: Request features or fixes for student registration functionality
+title: "[REGISTRATION] <brief description of request>"
+labels: ["enhancement", "registration"]
+assignees: ["copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Student Registration Management
+        
+        Use this template to request new features, modifications, or fixes related to student registration for activities.
+        
+        **Be specific about the registration behavior you want** - this helps our automated coding assistant implement exactly what you need.
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Type of Registration Request
+      description: What kind of registration functionality do you need?
+      options:
+        - "Add bulk registration feature (upload student list)"
+        - "Add student removal/cancellation feature"
+        - "Add waitlist functionality for full activities"
+        - "Add registration deadline management"
+        - "Add registration approval workflow"
+        - "Fix registration bug or issue"
+        - "Add registration reporting/export"
+        - "Add student registration history"
+        - "Other (describe below)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Registration Behavior
+      description: How does registration currently work?
+      placeholder: "e.g., Teachers can manually register students one at a time through the web interface"
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_behavior
+    attributes:
+      label: Desired Registration Behavior
+      description: How should registration work after your requested changes?
+      placeholder: "e.g., Teachers should be able to upload a CSV file with student emails to register multiple students at once"
+    validations:
+      required: true
+
+  - type: textarea
+    id: specific_requirements
+    attributes:
+      label: Specific Requirements
+      description: What are the detailed requirements for this feature?
+      placeholder: "e.g., CSV should have headers 'email' and 'activity_name', system should validate emails are @mergington.edu, show success/error messages for each student"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_activities
+    attributes:
+      label: Which Activities Are Affected?
+      description: Does this apply to all activities or specific ones?
+      options:
+        - "All activities"
+        - "Specific activities (list below)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: specific_activities
+    attributes:
+      label: Specific Activities
+      description: If this affects specific activities, list them here
+      placeholder: "e.g., Chess Club, Programming Class"
+
+  - type: checkboxes
+    id: user_permissions
+    attributes:
+      label: Who Should Have Access?
+      description: Which user types should be able to use this functionality?
+      options:
+        - label: "All teachers"
+        - label: "Principal/Admin only"
+        - label: "Activity supervisors only"
+        - label: "Students (self-registration)"
+
+  - type: textarea
+    id: error_handling
+    attributes:
+      label: Error Handling Requirements
+      description: How should the system handle errors or edge cases?
+      placeholder: "e.g., If student is already registered, show warning but don't fail; if activity is full, add to waitlist; if student email is invalid, show error message"
+
+  - type: textarea
+    id: ui_requirements
+    attributes:
+      label: User Interface Requirements
+      description: How should this feature be accessed in the web interface?
+      placeholder: "e.g., Add 'Bulk Register' button on activity details page, show upload form in modal, display progress during upload"
+
+  - type: checkboxes
+    id: data_requirements
+    attributes:
+      label: Data and Validation Requirements
+      description: What data validation and storage requirements are needed?
+      options:
+        - label: "Email format validation (@mergington.edu)"
+        - label: "Duplicate registration prevention"
+        - label: "Activity capacity limits enforced"
+        - label: "Registration history/audit trail"
+        - label: "Confirmation emails to students"
+        - label: "Export/reporting capabilities"
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Bug Description (if reporting a bug)
+      description: If this is a bug report, describe the issue in detail
+      placeholder: "e.g., When registering a student, the page refreshes but the student doesn't appear in the participant list"
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce (if reporting a bug)
+      description: Exact steps to reproduce the issue
+      placeholder: "1. Login as teacher\n2. Click on Chess Club\n3. Enter student email\n4. Click Register\n5. Notice student not added to list"
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "Confirm the following requirements (checked items will be implemented):"
+      options:
+        - label: "Feature works correctly for teachers"
+        - label: "Proper error messages are displayed"
+        - label: "Data validation prevents invalid registrations"
+        - label: "Activity capacity limits are respected"
+        - label: "User interface is intuitive and matches existing design"
+        - label: "Feature is tested with sample data"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Details for Coding Assistant
+        
+        **Technical Requirements:**
+        - Modify registration endpoints in `src/backend/routers/activities.py` as needed
+        - Add new UI components to `src/static/index.html` and `src/static/app.js`
+        - Ensure teacher authentication is maintained for registration features
+        - Follow existing patterns for API responses and error handling
+        - Update database operations if new data fields are needed
+        
+        **Files likely to be modified:**
+        - `src/backend/routers/activities.py` - Registration API endpoints
+        - `src/static/index.html` - UI forms and modals
+        - `src/static/app.js` - Frontend registration logic
+        - `src/static/styles.css` - Styling for new UI elements (if needed)
+        - `src/backend/database.py` - Database schema changes (if needed)
+        
+        **Testing checklist:**
+        - [ ] Registration feature works as specified
+        - [ ] Error handling works correctly
+        - [ ] UI integrates seamlessly with existing design
+        - [ ] Teacher authentication is maintained
+        - [ ] Data validation prevents invalid inputs
+        - [ ] Capacity limits are enforced

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Development Documentation
+    url: https://github.com/Mkublbock/skills-expand-your-team-with-copilot/blob/main/docs/how-to-develop.md
+    about: Check the development guide for setup and technical information
+  - name: 💬 Ask a Question
+    url: https://github.com/Mkublbock/skills-expand-your-team-with-copilot/discussions
+    about: Ask questions about using the system or request clarification

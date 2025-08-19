@@ -1,0 +1,181 @@
+name: ✏️ Modify Existing Activity
+description: Request changes to an existing activity's schedule, description, or capacity
+title: "[MODIFY] Update <activity name>"
+labels: ["enhancement", "activity-modification"]
+assignees: ["copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Modify Existing Activity
+        
+        Use this template to request changes to an existing extracurricular activity or club.
+        
+        **Please be specific about what needs to change** - this helps our automated coding assistant make precise updates without affecting other activities.
+
+  - type: dropdown
+    id: activity_name
+    attributes:
+      label: Which Activity Needs Modification?
+      description: Select the activity you want to modify
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Math Competition Team
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Manga Maniacs
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: input
+    id: other_activity
+    attributes:
+      label: Other Activity Name
+      description: If you selected "Other" above, specify the exact activity name
+      placeholder: "Exact name as it appears in the system"
+
+  - type: checkboxes
+    id: modification_type
+    attributes:
+      label: What needs to be modified?
+      description: Check all that apply
+      options:
+        - label: "Schedule (days/times)"
+        - label: "Description"
+        - label: "Maximum participants"
+        - label: "Activity name"
+        - label: "Other (explain below)"
+
+  - type: textarea
+    id: current_schedule
+    attributes:
+      label: Current Schedule
+      description: What is the current schedule? (Leave blank if not changing schedule)
+      placeholder: "e.g., Mondays and Fridays, 3:15 PM - 4:45 PM"
+
+  - type: textarea
+    id: new_schedule
+    attributes:
+      label: New Schedule
+      description: What should the new schedule be? (Leave blank if not changing schedule)
+      placeholder: "e.g., Tuesdays and Thursdays, 4:00 PM - 5:30 PM"
+
+  - type: input
+    id: new_start_time
+    attributes:
+      label: New Start Time (24-hour format)
+      description: If changing schedule, what's the new start time?
+      placeholder: "e.g., 16:00 for 4:00 PM"
+
+  - type: input
+    id: new_end_time
+    attributes:
+      label: New End Time (24-hour format)
+      description: If changing schedule, what's the new end time?
+      placeholder: "e.g., 17:30 for 5:30 PM"
+
+  - type: checkboxes
+    id: new_days
+    attributes:
+      label: New Meeting Days
+      description: If changing schedule, which days will the activity meet?
+      options:
+        - label: "Monday"
+        - label: "Tuesday"
+        - label: "Wednesday"
+        - label: "Thursday"
+        - label: "Friday"
+        - label: "Saturday"
+        - label: "Sunday"
+
+  - type: textarea
+    id: current_description
+    attributes:
+      label: Current Description
+      description: What is the current description? (Leave blank if not changing)
+      placeholder: "Current description as it appears on the website"
+
+  - type: textarea
+    id: new_description
+    attributes:
+      label: New Description
+      description: What should the new description be? (Leave blank if not changing)
+      placeholder: "Updated description that students will see"
+
+  - type: input
+    id: current_max_participants
+    attributes:
+      label: Current Maximum Participants
+      description: What is the current participant limit? (Leave blank if not changing)
+      placeholder: "e.g., 15"
+
+  - type: input
+    id: new_max_participants
+    attributes:
+      label: New Maximum Participants
+      description: What should the new participant limit be? (Leave blank if not changing)
+      placeholder: "e.g., 20"
+
+  - type: input
+    id: new_activity_name
+    attributes:
+      label: New Activity Name
+      description: If changing the activity name, what should it be? (Leave blank if not changing)
+      placeholder: "New name for the activity"
+
+  - type: textarea
+    id: reason_for_change
+    attributes:
+      label: Reason for Change
+      description: Why is this change needed?
+      placeholder: "e.g., Room availability changed, increased student interest, teacher schedule conflict"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_changes
+    attributes:
+      label: Additional Changes
+      description: Any other modifications needed that aren't covered above?
+      placeholder: "Any other specific changes or considerations"
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "Confirm the following requirements (checked items will be implemented):"
+      options:
+        - label: "Changes are reflected on the main activities page"
+        - label: "Existing student registrations are preserved (unless capacity is reduced)"
+        - label: "Schedule displays correctly in human-readable format"
+        - label: "If capacity is reduced, system handles overflow appropriately"
+        - label: "Activity filters still work correctly with updated information"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Details for Coding Assistant
+        
+        **Technical Requirements:**
+        - Modify the existing activity entry in `initial_activities` dictionary in `src/backend/database.py`
+        - Update the appropriate fields (description, schedule, schedule_details, max_participants)
+        - Ensure `schedule_details` maintains proper format with days array and 24-hour times
+        - If changing activity name, update the dictionary key and preserve participant data
+        - Consider participant count vs new capacity limits
+        
+        **Files to modify:**
+        - `src/backend/database.py` - Update specific activity in initial_activities dictionary
+        
+        **Testing checklist:**
+        - [ ] Modified activity displays correctly on homepage
+        - [ ] Schedule shows updated information in proper format
+        - [ ] Registration functionality still works
+        - [ ] Participant limits are enforced correctly
+        - [ ] Existing registrations are preserved appropriately
+        - [ ] Activity filters work with updated data

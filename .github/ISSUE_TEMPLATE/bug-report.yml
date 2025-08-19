@@ -1,0 +1,199 @@
+name: 🐛 Bug Report
+description: Report a problem with the website or system functionality
+title: "[BUG] <brief description of the issue>"
+labels: ["bug"]
+assignees: ["copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+        
+        Use this template to report problems, errors, or unexpected behavior in the Mergington High School activities system.
+        
+        **Please provide as much detail as possible** - this helps our automated coding assistant identify and fix the issue quickly.
+
+  - type: textarea
+    id: bug_summary
+    attributes:
+      label: Bug Summary
+      description: Briefly describe what's wrong
+      placeholder: "e.g., Students can't register for Programming Class, login page doesn't work on mobile"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen normally?
+      placeholder: "e.g., When a student's email is entered and Register is clicked, they should be added to the activity participant list"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happens instead?
+      placeholder: "e.g., The page shows a spinning loader but never adds the student to the list"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Exact steps to make this bug happen
+      placeholder: "1. Login as teacher (username: mrodriguez, password: art123)\n2. Click on Programming Class activity\n3. Enter email: test@mergington.edu\n4. Click Register button\n5. Notice nothing happens"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bug_area
+    attributes:
+      label: Which Area Has the Bug?
+      description: Where in the system does this bug occur?
+      options:
+        - "Student registration"
+        - "Teacher login/authentication"
+        - "Activity display/listing"
+        - "Activity filtering/search"
+        - "Schedule display"
+        - "User interface/layout"
+        - "Mobile responsiveness"
+        - "Page loading/performance"
+        - "Data accuracy"
+        - "Other (describe below)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: affected_browsers
+    attributes:
+      label: Browsers Affected
+      description: Which browsers have you tested this on?
+      options:
+        - label: "Chrome"
+        - label: "Firefox"
+        - label: "Safari"
+        - label: "Edge"
+        - label: "Mobile browsers"
+
+  - type: checkboxes
+    id: affected_user_types
+    attributes:
+      label: User Types Affected
+      description: Which types of users experience this bug?
+      options:
+        - label: "Teachers"
+        - label: "Principal/Admin"
+        - label: "Students (viewing activities)"
+        - label: "All users"
+
+  - type: checkboxes
+    id: affected_activities
+    attributes:
+      label: Activities Affected
+      description: Which activities have this problem? (Check all that apply)"
+      options:
+        - label: "All activities"
+        - label: "Chess Club"
+        - label: "Programming Class"
+        - label: "Morning Fitness"
+        - label: "Soccer Team"
+        - label: "Math Competition Team"
+        - label: "Debate Team"
+        - label: "Weekend Robotics Workshop"
+        - label: "Science Olympiad"
+        - label: "Sunday Chess Tournament"
+        - label: "Manga Maniacs"
+        - label: "Other (specify below)"
+
+  - type: textarea
+    id: other_activities
+    attributes:
+      label: Other Affected Activities
+      description: If you selected "Other" above, list the specific activities
+      placeholder: "List any activities not mentioned above"
+
+  - type: dropdown
+    id: bug_frequency
+    attributes:
+      label: How Often Does This Happen?
+      description: Is this bug consistent or intermittent?
+      options:
+        - "Always (every time)"
+        - "Often (most of the time)"
+        - "Sometimes (occasionally)"
+        - "Rarely (hard to reproduce)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: error_messages
+    attributes:
+      label: Error Messages
+      description: Any error messages you see? (Copy exact text)
+      placeholder: "e.g., 'Authentication required for this action', '404 Not Found', or console errors"
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other information that might help?
+      placeholder: "e.g., This started happening after a specific action, only occurs at certain times, affects certain student email formats"
+
+  - type: dropdown
+    id: bug_impact
+    attributes:
+      label: Impact Level
+      description: How severely does this affect daily operations?
+      options:
+        - "Critical - System is unusable"
+        - "High - Major functionality broken"
+        - "Medium - Some features don't work"
+        - "Low - Minor inconvenience"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria for Fix
+      description: "The bug will be considered fixed when:"
+      options:
+        - label: "Steps to reproduce no longer cause the issue"
+        - label: "Expected behavior occurs consistently"
+        - label: "No new issues are introduced"
+        - label: "Fix works across all mentioned browsers/devices"
+        - label: "Error messages are helpful and clear (if any should appear)"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Details for Coding Assistant
+        
+        **Debugging Strategy:**
+        1. Reproduce the issue using the provided steps
+        2. Check browser console for JavaScript errors
+        3. Verify API endpoints are responding correctly
+        4. Check database operations for data consistency
+        5. Test authentication and permission flows
+        6. Validate HTML/CSS rendering issues
+        
+        **Files likely to need investigation:**
+        - `src/static/app.js` - Frontend JavaScript logic
+        - `src/backend/routers/activities.py` - Activity API endpoints
+        - `src/backend/routers/auth.py` - Authentication logic
+        - `src/static/index.html` - HTML structure and forms
+        - `src/static/styles.css` - CSS styling issues
+        - `src/backend/database.py` - Database operations
+        
+        **Testing checklist:**
+        - [ ] Bug can be reproduced initially
+        - [ ] Fix resolves the specific issue
+        - [ ] No regression in other functionality
+        - [ ] Works across different browsers/devices as specified
+        - [ ] Error handling is appropriate
+        - [ ] User experience is improved
