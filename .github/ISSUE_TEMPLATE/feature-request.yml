@@ -1,0 +1,193 @@
+name: 🚀 General Feature Request
+description: Request new functionality or features for the activities management system
+title: "[FEATURE] <brief description of feature>"
+labels: ["enhancement", "feature-request"]
+assignees: ["copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## General Feature Request
+        
+        Use this template to request new features or functionality for the Mergington High School activities system.
+        
+        **Describe your feature clearly with specific requirements** - this helps our automated coding assistant build exactly what you need.
+
+  - type: textarea
+    id: feature_summary
+    attributes:
+      label: Feature Summary
+      description: Briefly describe the new feature you want
+      placeholder: "e.g., Add ability to send email notifications to students when new activities are added"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve?
+      placeholder: "e.g., Currently, teachers have to manually notify students about new activities, which is time-consuming and some students miss out"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: How should this feature work?
+      placeholder: "e.g., When a teacher adds a new activity, the system should automatically send an email to all students with details about the activity"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: feature_category
+    attributes:
+      label: Feature Category
+      description: What type of feature is this?
+      options:
+        - label: "Communication/Notifications"
+        - label: "Reporting and Analytics"
+        - label: "User Management"
+        - label: "Data Import/Export"
+        - label: "Scheduling and Calendar"
+        - label: "Student Tracking"
+        - label: "Administrative Tools"
+        - label: "Integration with Other Systems"
+        - label: "Security and Permissions"
+        - label: "Other"
+
+  - type: checkboxes
+    id: target_users
+    attributes:
+      label: Who Will Use This Feature?
+      description: Which users should have access to this functionality?
+      options:
+        - label: "Teachers"
+        - label: "Principal/Admin"
+        - label: "Students"
+        - label: "All users"
+
+  - type: textarea
+    id: detailed_requirements
+    attributes:
+      label: Detailed Requirements
+      description: List specific requirements for this feature
+      placeholder: "e.g., 1. Email should include activity name, description, schedule, and registration deadline\n2. Teachers should be able to preview the email before sending\n3. System should track which students received the email\n4. Include unsubscribe option for students"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_interface_needs
+    attributes:
+      label: User Interface Requirements
+      description: How should users interact with this feature?
+      placeholder: "e.g., Add 'Notify Students' button when creating/editing activities, show notification history in teacher dashboard"
+
+  - type: textarea
+    id: data_requirements
+    attributes:
+      label: Data Requirements
+      description: What information needs to be stored or processed?
+      placeholder: "e.g., Student email addresses, notification preferences, email delivery status, notification history"
+
+  - type: checkboxes
+    id: integration_needs
+    attributes:
+      label: Integration Requirements
+      description: Does this feature need to work with external systems?
+      options:
+        - label: "Email system (SMTP)"
+        - label: "School district systems"
+        - label: "Calendar applications"
+        - label: "Student information system"
+        - label: "No external integrations needed"
+
+  - type: dropdown
+    id: complexity_estimate
+    attributes:
+      label: Expected Complexity
+      description: How complex do you think this feature is?
+      options:
+        - "Simple - Should be quick to implement"
+        - "Medium - Moderate development effort"
+        - "Complex - Significant development required"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_metrics
+    attributes:
+      label: Success Metrics
+      description: How will you measure if this feature is successful?
+      placeholder: "e.g., 90% of students receive notifications within 5 minutes, teacher satisfaction with communication tools increases, student activity participation increases by 20%"
+
+  - type: textarea
+    id: alternative_solutions
+    attributes:
+      label: Alternative Solutions Considered
+      description: What other ways could this problem be solved?
+      placeholder: "e.g., Manual email lists, posting announcements on school website, using existing school communication tools"
+
+  - type: dropdown
+    id: timeline_needs
+    attributes:
+      label: Timeline Requirements
+      description: When do you need this feature?
+      options:
+        - "ASAP - Urgent need"
+        - "Within 1 month"
+        - "Within 3 months"
+        - "No specific deadline"
+    validations:
+      required: true
+
+  - type: textarea
+    id: edge_cases
+    attributes:
+      label: Edge Cases and Considerations
+      description: What unusual situations should this feature handle?
+      placeholder: "e.g., What happens if student email bounces? How to handle students who opt out? What if teacher makes mistake and wants to recall notification?"
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "This feature will be considered complete when:"
+      options:
+        - label: "Feature works as described in requirements"
+        - label: "User interface is intuitive and matches existing design"
+        - label: "Feature handles edge cases appropriately"
+        - label: "No existing functionality is broken"
+        - label: "Feature is tested with realistic data"
+        - label: "Performance is acceptable"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Details for Coding Assistant
+        
+        **Development Guidelines:**
+        - Follow existing code patterns and architecture
+        - Maintain compatibility with current database structure
+        - Ensure new features integrate seamlessly with existing UI
+        - Implement proper error handling and user feedback
+        - Consider security implications of new functionality
+        - Test thoroughly with edge cases
+        
+        **Files likely to be modified:**
+        - `src/backend/routers/` - New API endpoints
+        - `src/static/index.html` - UI components
+        - `src/static/app.js` - Frontend functionality
+        - `src/static/styles.css` - Styling for new features
+        - `src/backend/database.py` - Database changes (if needed)
+        - `src/requirements.txt` - New dependencies (if needed)
+        
+        **Testing checklist:**
+        - [ ] Feature works according to specifications
+        - [ ] User interface is intuitive and accessible
+        - [ ] Error handling provides helpful feedback
+        - [ ] Performance meets expectations
+        - [ ] Security considerations are addressed
+        - [ ] Integration with existing features works correctly

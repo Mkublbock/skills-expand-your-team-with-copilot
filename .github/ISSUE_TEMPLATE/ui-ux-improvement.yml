@@ -1,0 +1,189 @@
+name: 🎨 UI/UX Improvement
+description: Request improvements to the website design, layout, or user experience
+title: "[UI/UX] <brief description of improvement>"
+labels: ["enhancement", "ui/ux"]
+assignees: ["copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## UI/UX Improvement Request
+        
+        Use this template to request improvements to the website's appearance, layout, or user experience.
+        
+        **Be specific about what you want to improve** - this helps our automated coding assistant make the right design changes.
+
+  - type: dropdown
+    id: improvement_area
+    attributes:
+      label: What Area Needs Improvement?
+      description: Which part of the website should be improved?
+      options:
+        - "Homepage/Activities listing"
+        - "Activity registration forms"
+        - "Teacher login interface"
+        - "Mobile responsiveness"
+        - "Color scheme/visual design"
+        - "Navigation/menu"
+        - "Search and filtering"
+        - "Activity detail displays"
+        - "Error messages and feedback"
+        - "Overall layout and spacing"
+        - "Accessibility features"
+        - "Other (describe below)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_experience
+    attributes:
+      label: Current User Experience
+      description: How does this area currently work or look?
+      placeholder: "e.g., The activities are displayed in a plain list without any visual hierarchy, making it hard to quickly scan through them"
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_experience
+    attributes:
+      label: Desired User Experience
+      description: How should this area work or look after improvement?
+      placeholder: "e.g., Activities should be displayed in attractive cards with clear visual separation, activity type icons, and color-coded categories"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: specific_improvements
+    attributes:
+      label: Specific Improvements Needed
+      description: Check all improvements that should be made
+      options:
+        - label: "Better visual organization/layout"
+        - label: "Improved color scheme"
+        - label: "Better typography/fonts"
+        - label: "Enhanced mobile experience"
+        - label: "Clearer navigation"
+        - label: "Better error/success messages"
+        - label: "Improved accessibility (screen readers, etc.)"
+        - label: "Visual feedback for user actions"
+        - label: "Better responsive design"
+        - label: "Enhanced search/filter interface"
+
+  - type: checkboxes
+    id: target_users
+    attributes:
+      label: Primary Users for This Improvement
+      description: Who will benefit most from this change?
+      options:
+        - label: "Teachers using the system"
+        - label: "Students browsing activities"
+        - label: "Principal/administrative staff"
+        - label: "Mobile users"
+        - label: "Users with accessibility needs"
+
+  - type: textarea
+    id: design_preferences
+    attributes:
+      label: Design Preferences
+      description: Any specific design preferences or requirements?
+      placeholder: "e.g., Keep the school colors (blue and white), make it look modern but professional, ensure text is large enough for easy reading"
+
+  - type: dropdown
+    id: device_focus
+    attributes:
+      label: Device Priority
+      description: Which devices should this improvement focus on?
+      options:
+        - "Desktop computers (primary)"
+        - "Mobile phones (primary)"
+        - "Tablets (primary)"
+        - "All devices equally"
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: Success Criteria
+      description: How will you know if this improvement is successful?
+      placeholder: "e.g., Teachers can find and register students for activities 50% faster, mobile users can easily navigate without zooming, design looks professional and modern"
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples_inspiration
+    attributes:
+      label: Examples or Inspiration
+      description: Any websites, designs, or specific examples that show what you want?
+      placeholder: "e.g., The activity cards should look similar to those on [school website], use a layout like [example site], or incorporate elements like [design reference]"
+
+  - type: checkboxes
+    id: accessibility_requirements
+    attributes:
+      label: Accessibility Requirements
+      description: Important accessibility considerations
+      options:
+        - label: "High contrast for visually impaired users"
+        - label: "Large text options"
+        - label: "Keyboard navigation support"
+        - label: "Screen reader compatibility"
+        - label: "Simple, clear language"
+        - label: "Consistent navigation patterns"
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Implementation Priority
+      description: How urgent is this improvement?
+      options:
+        - "High - Needed for upcoming events"
+        - "Medium - Would be helpful soon"
+        - "Low - Nice to have when possible"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help with this improvement?
+      placeholder: "e.g., This improvement is needed before the fall enrollment period, current design confuses new teachers, students have complained about mobile experience"
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "The improvement will be considered complete when:"
+      options:
+        - label: "Design matches the described vision"
+        - label: "Functionality remains intact"
+        - label: "Mobile experience is improved (if applicable)"
+        - label: "Accessibility requirements are met"
+        - label: "No existing features are broken"
+        - label: "Performance is maintained or improved"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Details for Coding Assistant
+        
+        **Design Implementation Guidelines:**
+        - Maintain existing functionality while improving appearance
+        - Follow responsive design principles for mobile compatibility
+        - Use semantic HTML for accessibility
+        - Ensure color contrast meets accessibility standards
+        - Test changes across different screen sizes
+        - Keep design consistent with existing school branding
+        
+        **Files likely to be modified:**
+        - `src/static/styles.css` - Primary styling changes
+        - `src/static/index.html` - HTML structure modifications (if needed)
+        - `src/static/app.js` - UI interaction improvements (if needed)
+        
+        **Testing checklist:**
+        - [ ] Design looks good on desktop browsers
+        - [ ] Mobile experience is improved
+        - [ ] All existing functionality still works
+        - [ ] Accessibility standards are maintained/improved
+        - [ ] Loading performance is acceptable
+        - [ ] Design is consistent across different pages/sections

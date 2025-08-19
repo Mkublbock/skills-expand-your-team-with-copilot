@@ -31,6 +31,22 @@
 
 </div>
 
+## 📚 For Teachers
+
+This repository includes a comprehensive system to help teachers request changes and new features without needing to understand programming:
+
+- **[📋 Request Changes](../../issues/new/choose)** - Use our issue templates to request new activities, modifications, or bug fixes
+- **[📖 Teacher's Guide](docs/teacher-request-guide.md)** - Complete guide on how to submit effective requests
+- **[🎯 Issue Templates Available](../../issues/new/choose):**
+  - Add new activities/clubs
+  - Modify existing activities  
+  - Student registration improvements
+  - Bug reports
+  - UI/UX enhancements
+  - General feature requests
+
+All requests are automatically assigned to our coding assistant for quick implementation!
+
 ---
 
 &copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)

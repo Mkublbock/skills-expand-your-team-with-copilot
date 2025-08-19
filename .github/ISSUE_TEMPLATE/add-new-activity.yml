@@ -1,0 +1,126 @@
+name: 🎯 Add New Activity/Club
+description: Request to add a new extracurricular activity or club to the system
+title: "[NEW ACTIVITY] Add <activity name>"
+labels: ["enhancement", "new-activity"]
+assignees: ["copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Adding a New Activity/Club
+        
+        Use this template to request a new extracurricular activity or club be added to the Mergington High School system.
+        
+        **Please fill out all sections completely** - this helps our automated coding assistant implement your request accurately without needing clarification.
+
+  - type: input
+    id: activity_name
+    attributes:
+      label: Activity/Club Name
+      description: What is the exact name of the new activity?
+      placeholder: "e.g., Drama Club, Spanish Honor Society, Basketball Team"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Activity Description
+      description: Provide a clear, engaging description that students will see
+      placeholder: "e.g., Explore theatrical arts through acting, directing, and stage production. Perfect for students interested in developing performance skills and working behind the scenes."
+      value: ""
+    validations:
+      required: true
+
+  - type: dropdown
+    id: schedule_days
+    attributes:
+      label: Meeting Days
+      description: Which days of the week will this activity meet?
+      multiple: true
+      options:
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Sunday
+    validations:
+      required: true
+
+  - type: input
+    id: start_time
+    attributes:
+      label: Start Time
+      description: What time does the activity start? (Use 24-hour format)
+      placeholder: "e.g., 15:30 for 3:30 PM, 07:00 for 7:00 AM"
+    validations:
+      required: true
+
+  - type: input
+    id: end_time
+    attributes:
+      label: End Time
+      description: What time does the activity end? (Use 24-hour format)
+      placeholder: "e.g., 17:00 for 5:00 PM, 08:30 for 8:30 AM"
+    validations:
+      required: true
+
+  - type: input
+    id: max_participants
+    attributes:
+      label: Maximum Participants
+      description: What is the maximum number of students who can participate?
+      placeholder: "e.g., 15, 20, 25"
+    validations:
+      required: true
+
+  - type: textarea
+    id: teacher_supervisor
+    attributes:
+      label: Supervising Teacher
+      description: Which teacher will supervise this activity? (Provide username if known)
+      placeholder: "e.g., Ms. Rodriguez (mrodriguez), Mr. Chen (mchen)"
+      value: ""
+
+  - type: textarea
+    id: special_requirements
+    attributes:
+      label: Special Requirements or Notes
+      description: Any special equipment, location requirements, or other important details?
+      placeholder: "e.g., Requires art room access, students must provide own instruments, outdoor activity weather dependent"
+      value: ""
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "Confirm the following requirements (checked items will be implemented):"
+      options:
+        - label: "Activity appears in the activities list on the main page"
+        - label: "Students can register for the activity"
+        - label: "Activity shows correct schedule information"
+        - label: "Participant limit is enforced"
+        - label: "Activity is properly categorized (sports, academic, arts, etc.)"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Details for Coding Assistant
+        
+        **Technical Requirements:**
+        - Add new activity entry to `initial_activities` dictionary in `src/backend/database.py`
+        - Ensure proper `schedule_details` format with days array and 24-hour time format
+        - Activity should automatically appear in the web interface
+        - Standard registration functionality should work immediately
+        
+        **Files to modify:**
+        - `src/backend/database.py` - Add activity to initial_activities dictionary
+        
+        **Testing checklist:**
+        - [ ] Activity appears on homepage
+        - [ ] Registration modal opens correctly
+        - [ ] Schedule displays properly in human-readable format
+        - [ ] Participant counting works correctly
+        - [ ] Activity filters work with new activity
